@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linkabbr</title>
+</head>
+<body>
+<form class="address_form" method="post" th:action="@{/link}">
+    <p class="link">请输入链接</p>
+    <input id="link" class="link_textbox" type="text" name="link" placeholder="https://wakem.top">
+    <input id="expire" class="link_textbox" type="text" name="expireDays" placeholder="https://wakem.top">
+    <input id="submit_button" type="submit" name="submit" value="提交">
+</form>
+</body>
+</html>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    document.getElementById("submit_button").addEventListener("click", function(event) {
+        event.preventDefault()
+        var link = document.getElementById("link");
+        var expire = document.getElementById("expire");
+        var link_str = link.value
+        var expire_days = expire.value
+        alert(link_str + " " + expire_days)
+        axios({
+            url: 'http://localhost:8080/link',
+            method: 'post',
+            data: {
+                link: link_str,
+                expireDays: expire_days
+            },
+            header:{
+                'Content-Type':'application/json'
+            }
+        }).then(function (response) {
+            alert(JSON.stringify(response.data))
+        })
+    })
+
+
+</script>

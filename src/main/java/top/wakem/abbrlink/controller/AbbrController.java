@@ -34,13 +34,6 @@ public class AbbrController {
         return BaseResponse.success(abbr);
     }
 
-    @GetMapping("/ss")
-    public ModelAndView test() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("ss");
-        return mv;
-    }
-
     @GetMapping("/{abbr}")
     public void redirect(HttpServletResponse response, @PathVariable String abbr) {
         String link = abbrService.getLink(abbr);

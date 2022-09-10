@@ -24,12 +24,10 @@ import java.util.*;
 @Controller
 public class AbbrController {
 
-    public static final String PREFIX = "https://wakem.top/s/";
-
     @Resource
     AbbrService abbrService;
 
-    @PostMapping("/link")
+    @PutMapping("/link")
     @ResponseBody
     public BaseResponse<String> addLink(@RequestBody LinkRequest linkRequest) {
         String abbr = abbrService.addLink(linkRequest.getLink(), linkRequest.getExpireDays());

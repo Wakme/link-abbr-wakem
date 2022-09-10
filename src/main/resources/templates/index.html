@@ -9,7 +9,13 @@
 <form class="address_form" method="post" th:action="@{/link}">
     <p class="link">请输入链接</p>
     <input id="link" class="link_textbox" type="text" name="link" placeholder="https://wakem.top">
-    <input id="expire" class="link_textbox" type="text" name="expireDays" placeholder="https://wakem.top">
+    <select id = "expire">
+        <option value = 3 selected>3天</option>
+        <option value = 30>1月</option>
+        <option value = 180>6月</option>
+        <option value = 365>1年</option>
+        <option value = 99999>无限制</option>
+    </select>
     <input id="submit_button" type="submit" name="submit" value="提交">
 
 </form>

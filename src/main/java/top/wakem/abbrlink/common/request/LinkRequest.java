@@ -15,5 +15,6 @@ public class LinkRequest {
     @NonNull
     private String link;
 
-    private Long expireDays;
+    @NonNull
+    private Integer expireDays;
 }

@@ -2,6 +2,7 @@ package top.wakem.abbrlink.service;
 
 
 import com.mysql.cj.util.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 import top.wakem.abbrlink.common.constants.BizExcepConstants;
 import top.wakem.abbrlink.common.enums.BizExceptionEnum;
@@ -36,7 +37,7 @@ public class AbbrService {
      * @param link 长连接
      * @param expireDays 有效天数
      */
-    public String addLink(String link, Long expireDays) {
+    public String addLink(String link, Integer expireDays) {
         if (!UrlUtils.isUrl(link)) {
             throw new BizException(BizExcepConstants.WRONG_PARAM, "链接校验失败");
         }
@@ -47,8 +48,9 @@ public class AbbrService {
         LinkAbbr linkAbbr = new LinkAbbr();
         linkAbbr.setLinkAbbr(abbr);
         linkAbbr.setLink(link);
-        linkAbbr.setCreateTime(new Date());
-        linkAbbr.setExpireTime(new Date());
+        Date now = new Date();
+        linkAbbr.setCreateTime(now);
+        linkAbbr.setExpireTime(DateUtils.addDays(now, expireDays));
         int res = linkAbbrRepository.save(linkAbbr);
 
         if (res <= 0) {

@@ -43,4 +43,10 @@ public class AbbrController {
         }
     }
 
-}
+    @RequestMapping("/favicon.ico")
+    String favicon() {
+        return "forward:/static/favicon.ico";
+    }
+
+
+    }

@@ -1,37 +1,226 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>linkabbr</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>短!</title>
+    <style>
+        @font-face {
+            font-family: font1;
+            src: url("../static/font/1.ttf");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(11, 12, 26);
+        }
+        .face{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: inset 0 0 3px rgb(15, 15, 9),
+            inset 0 0 5px rgb(15, 15, 9);
+        }
+
+        /*.face::after{*/
+        /*    content: '';*/
+        /*    position: absolute;*/
+        /*    bottom: 12%;*/
+        /*    left: 50%;*/
+        /*    transform: translateX(-50%);*/
+        /*    width: 90px;*/
+        /*    height: 40px;*/
+        /*    background-color: rgb(255, 199, 45);*/
+        /*    border-radius:  0 0 70px 70px;*/
+        /*    box-shadow: inset 0 0 5px rgb(53, 53, 53);*/
+        /*}*/
+
+        .happy::after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 40px;
+            background-color: rgb(255, 199, 45);
+            border-radius:  0 0 70px 70px;
+            box-shadow: inset 0 0 5px rgb(53, 53, 53);
+        }
+
+        .unhappy::after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 40px;
+            background-color: rgb(255, 199, 45);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: inset 0 0 5px rgb(53, 53, 53);
+        }
+
+        .eye{
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: inset 0 0 5px rgb(58, 58, 58);
+        }
+        .eye::after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: transLateY(-50%);
+            width: 50%;
+            height: 50%;
+            background-color: #000;
+            border-radius: 50%;
+
+            box-shadow: inset 0 0 3px white,
+            inset 0 0 5px white;
+        }
+        .face .eye:nth-child(1){
+            top: 26%;
+            left: 12%;
+        }
+        .face .eye:nth-child(2){
+            top: 26%;
+            right: 12%;
+        }
+
+        .search {
+            width: 60rem;
+        }
+        .address_form {
+            display: flex;
+            justify-content: center;
+        }
+        #expire {
+            width: 60px;
+            height: 40px;
+            background-color: rgb(255, 255, 255);
+            border-bottom-left-radius: 50px;
+            border-top-left-radius: 50px;
+            font-size: 15px;
+            padding-left: 15px;
+            border: 0px;
+            color: black;
+            outline: none;
+            margin-right: 0;
+            font-family: font1
+        }
+
+        #link {
+            width: 48%;
+            height: 40px;
+            background-color: rgb(255, 255, 255);
+            font-size: 10px;
+            padding-left: 15px;
+            border: 0px;
+            color: black;
+            outline: none;
+            margin-left: -5px;
+            font-family: font1
+        }
+
+        /* 默认信息placeholder的颜色和字体 */
+        ::-webkit-input-placeholder {
+            color: rgb(197, 197, 197);
+            font-size: 15px;
+        }
+
+        #submit_button {
+            width: 14%;
+            height: 40px;
+            background-color: rgb(240, 238, 238);
+            /* background-color: rgb(3, 20, 152); */
+            border: 0;
+            margin-left: -5px;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            color: rgb(116, 116, 116);
+            font-size: 20px;
+            font-family: font1;
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+        }
+
+        #submit_button:hover{
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-<form class="address_form" method="post" th:action="@{/link}">
-    <p class="link">请输入链接</p>
-    <input id="link" class="link_textbox" type="text" name="link" placeholder="https://wakem.top">
-    <select id = "expire">
-        <option value = 3 selected>3天</option>
-        <option value = 30>1月</option>
-        <option value = 180>6月</option>
-        <option value = 365>1年</option>
-        <option value = 99999>无限制</option>
-    </select>
-    <input id="submit_button" type="submit" name="submit" value="提交">
-
-</form>
-</body>
-</html>
-
+<div class="face" id="face">
+    <div class="eye"></div>
+    <div class="eye"></div>
+</div>
+<div style="height: 2rem;"></div>
+<div class="search">
+    <form class="address_form" method="post" th:action="@{/link}">
+        <select id = "expire" title="expire">
+            <option value = 3 selected>3天</option>
+            <option value = 30>1月</option>
+            <option value = 180>6月</option>
+            <option value = 365>1年</option>
+            <option value = 99999>永久</option>
+        </select>
+        <input id="link" class="link_textbox" type="text" name="link" placeholder="请在此输入链接">
+        <input id="submit_button" type="submit" name="submit" value="短!">
+    </form>
+</div>
+<div style="height: 8rem;"></div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
+    var eye = document.querySelectorAll(".eye");
+    window.addEventListener('mousemove',function(event){
+
+        eye.forEach(function(eye){
+            let angle = Math.atan2(event.pageX-eye.getBoundingClientRect()
+                .left-eye.clientLeft/2,event.pageY-eye.getBoundingClientRect().top
+                -eye.clientTop/2);
+            let rot = angle * 180 / Math.PI * -1 - 90 ;
+            eye.style.transform = `rotate(${rot}deg)`;
+        })
+    })
+
+
 
     document.getElementById("submit_button").addEventListener("click", function(event) {
         event.preventDefault()
-        var link = document.getElementById("link");
-        var expire = document.getElementById("expire");
-        var link_str = link.value
-        var expire_days = expire.value
-        alert(link_str + " " + expire_days)
+        let link = document.getElementById("link");
+        let face = document.getElementById("face");
+        let expire = document.getElementById("expire");
+        let link_str = link.value
+        let expire_days = expire.value
         axios({
             url: 'http://localhost:8080/link',
             method: 'put',
@@ -43,9 +232,48 @@
                 'Content-Type':'application/json'
             }
         }).then(function (response) {
-            alert(JSON.stringify(response.data))
+            if (response.data.code !== 1) {
+                link.value = '出错啦!' + String(response.data.data)
+                face.classList.add("unhappy")
+                return;
+            }
+            let suffix = "(点击复制到剪贴板)"
+            let url = window.location.href.slice(0, -5)
+            url += response.data.data
+            link.value = url + suffix
+            face.classList.add("happy")
         })
     })
 
+    //实现全选功能
+    function selectAll(e) {
 
+        e.select()    // 选取文本域的内容
+        if (e.value.startsWith("出错啦!")) {
+            e.value = ""
+            return
+        }
+        this.copy(e.value)
+
+    }
+
+    function copy(str) {
+        if (!str) return
+        var save = function (e) {
+            let suffix = "(点击复制到剪贴板)"
+            if (str.endsWith(suffix)) {
+                str = str.slice(0, -suffix.length)
+            }
+            e.clipboardData.setData('text/plain', str); //clipboardData对象
+            e.preventDefault(); //阻止默认行为
+        }
+        document.addEventListener('copy', save);
+        document.execCommand("copy"); //使文档处于可编辑状态，否则无效
+    }
+
+    document.getElementById('link').addEventListener('click', function (ev) {
+        selectAll(ev.target)
+    })
 </script>
+</body>
+</html>

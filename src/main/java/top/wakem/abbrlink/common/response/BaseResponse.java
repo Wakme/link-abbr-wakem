@@ -22,4 +22,11 @@ public class BaseResponse<T> {
         resp.setData(exceptionEnum.getDesc());
         return resp;
     }
+
+    public static BaseResponse<String> fail(String message) {
+        BaseResponse<String> resp = new BaseResponse<>();
+        resp.setCode(ResponseCodeEnum.FAIL.getCode());
+        resp.setData(message);
+        return resp;
+    }
 }

@@ -44,6 +44,7 @@ public class AbbrService {
         if (Objects.nonNull(expireDays) && expireDays <= 0) {
             throw new BizException(BizExcepConstants.WRONG_PARAM, "有效天数校验失败");
         }
+        link = link.trim();
         String abbr = getAvailableLinkAbbr();
         LinkAbbr linkAbbr = new LinkAbbr();
         linkAbbr.setLinkAbbr(abbr);

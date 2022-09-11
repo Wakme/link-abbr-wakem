@@ -235,7 +235,7 @@
         let link_str = link.value
         let expire_days = expire.value
         axios({
-            url: 'http://localhost:8080/link',
+            url: '/link',
             method: 'put',
             data: {
                 link: link_str,

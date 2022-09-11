@@ -26,8 +26,8 @@ public class AbbrController {
         return BaseResponse.success(abbr);
     }
 
-    @GetMapping("/index")
-    public ModelAndView test() {
+    @GetMapping("/")
+    public ModelAndView index() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
         return mv;

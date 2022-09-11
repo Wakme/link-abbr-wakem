@@ -252,7 +252,7 @@
                 return;
             }
             let suffix = "(已复制到剪贴板)"
-            let url = window.location.href.slice(0, -5)
+            let url = window.location.href
             url += response.data.data
             link.value = url + suffix
             face.classList.remove("unhappy")

@@ -8,16 +8,14 @@
     <style>
         @font-face {
             font-family: font1;
-            src: url("../static/font/1.ttf");
+            src: url("../static/font/3.ttf");
             font-weight: normal;
             font-style: normal;
         }
 
-
         *{
             padding: 0;
             margin: 0;
-
         }
         body{
             height: 100vh;
@@ -26,14 +24,14 @@
             justify-content: center;
             align-items: center;
             background-color: rgb(11, 12, 26);
+            position: relative;
         }
         .face{
             width: 200px;
             height: 200px;
             border-radius: 50%;
             position: relative;
-            box-shadow: inset 0 0 3px rgb(15, 15, 9),
-            inset 0 0 5px rgb(15, 15, 9);
+            top: -18%;
         }
 
         /*.face::after{*/
@@ -107,9 +105,14 @@
             right: 12%;
         }
 
+
         .search {
             width: 60rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
         }
+
         .address_form {
             display: flex;
             justify-content: center;
@@ -117,16 +120,40 @@
         #expire {
             width: 60px;
             height: 40px;
-            background-color: rgb(255, 255, 255);
-            border-bottom-left-radius: 50px;
-            border-top-left-radius: 50px;
+            line-height: 40px;
+            background-color: white;
+            border-radius: 50px 0 0 50px;
             font-size: 15px;
             padding-left: 15px;
-            border: 0px;
             color: black;
-            outline: none;
-            margin-right: 0;
-            font-family: font1
+            font-family: font1;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        #selectArrow {
+            display: inline-block;
+            transform: rotate(-90deg);
+        }
+        #expire ul {
+            display: none;
+        }
+        #expire li {
+            translate: -10px 10px;
+            width: 60px;
+            height: 28px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #expire li:hover {
+            background-color: deepskyblue;
+        }
+        #expire li:first-child {
+            border-radius: 6px 6px 0 0;
+        }
+        #expire li:last-child {
+            border-radius: 0 0 6px 6px;
         }
 
         #link {
@@ -151,14 +178,16 @@
         #submit_button {
             width: 14%;
             height: 40px;
-            background-color: rgb(240, 238, 238);
+            background-color: #E0E0E0;
             /* background-color: rgb(3, 20, 152); */
             border: 0;
             margin-left: -5px;
             border-bottom-right-radius: 50px;
             border-top-right-radius: 50px;
-            color: rgb(116, 116, 116);
-            font-size: 20px;
+            color: black;
+            text-shadow: 1px 1px rgb(255, 199, 45);
+            /*color: rgb(116, 116, 116);*/
+            font-size: 28px;
             font-family: font1;
             cursor: pointer;
             display: inline-block;
@@ -196,24 +225,26 @@
     <div class="eye"></div>
     <div class="eye"></div>
 </div>
-<div style="height: 2rem;"></div>
 <div class="search">
     <form class="address_form" method="post" th:action="@{/link}">
-        <select id = "expire" title="expire">
-            <option value = 3 selected>3天</option>
-            <option value = 30>1月</option>
-            <option value = 180>6月</option>
-            <option value = 365>1年</option>
-            <option value = 99999>永久</option>
-        </select>
+        <div id="expire" value=3>
+            <span>select!</span>
+            <span id="selectArrow"><</span>
+            <ul>
+                <li value=3 >3天</li>
+                <li value=30 >1月</li>
+                <li value=180 >6月</li>
+                <li value=365 >1年</li>
+                <li value=99999 >永久</li>
+            </ul>
+        </div>
         <input id="link" class="link_textbox" type="text" name="link" placeholder="请在此输入链接">
         <input id="submit_button" type="submit" name="submit" value="短!">
     </form>
 </div>
-<div style="height: 8rem;"></div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    var eye = document.querySelectorAll(".eye");
+    let eye = document.querySelectorAll(".eye");
     window.addEventListener('mousemove',function(event){
 
         eye.forEach(function(eye){
@@ -224,8 +255,6 @@
             eye.style.transform = `rotate(${rot}deg)`;
         })
     })
-
-
 
     document.getElementById("submit_button").addEventListener("click", function(event) {
         event.preventDefault()
@@ -289,6 +318,35 @@
     document.getElementById('link').addEventListener('click', function (ev) {
         selectAll(ev.target)
     })
+
+    // 使用ul实现下拉select
+    window.onload = function () {
+        let selected = document.getElementById('expire')
+        let selectedArrow = document.getElementById('selectArrow')
+        let selectedText = document.querySelectorAll("#expire span")[0]
+        let options_ul = document.querySelectorAll("#expire ul")[0]
+        let options = document.querySelectorAll("#expire li")
+        selectedText.innerHTML = options[0].innerHTML
+        selected.value = options[0].value
+        selected.addEventListener('click', (e)=> {
+            options_ul.style.display = 'block'
+            selectedArrow.style.transform = 'rotate(90deg)'
+            e.stopPropagation()        // 阻止点击事件冒泡
+        })
+        window.addEventListener('click', ()=> {
+            selectedArrow.style.transform = 'rotate(-90deg)'
+            options_ul.style.display = 'none'
+        })
+        options.forEach((item)=>{
+            item.addEventListener('click', (e)=>{
+                selectedText.innerHTML = item.innerHTML
+                selected.value = item.value
+                selectedArrow.style.transform = 'rotate(-90deg)'
+                options_ul.style.display = 'none'
+                e.stopPropagation()        // 阻止点击事件冒泡
+            })
+        })
+    }
 </script>
 </body>
 </html>

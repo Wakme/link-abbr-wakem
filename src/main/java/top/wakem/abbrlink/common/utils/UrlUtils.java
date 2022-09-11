@@ -20,4 +20,14 @@ public class UrlUtils {
                 + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";
         return url.matches(regex);
     }
+
+    public static String preHandleUrl(String link) {
+        if (StringUtils.isBlank(link)) {
+            return "";
+        }
+        if (!link.startsWith("http")) {
+            link = "http://" + link;
+        }
+        return link;
+    }
 }

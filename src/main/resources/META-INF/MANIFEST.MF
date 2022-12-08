@@ -1,0 +1,101 @@
+Manifest-Version: 1.0
+Main-Class: top.wakem.abbrlink.AbbrlinkApplication
+Class-Path: commons-compiler-3.1.7.jar checker-qual-3.12.0.jar netty-res
+ olver-4.1.79.Final.jar spring-webmvc-5.3.22.jar jsr305-3.0.2.jar shardi
+ ngsphere-memory-mode-core-5.0.0.jar shardingsphere-sql-parser-engine-5.
+ 0.0.jar jul-to-slf4j-1.7.36.jar thymeleaf-3.0.15.RELEASE.jar log4j-api-
+ 2.17.2.jar jsqlparser-3.2.jar netty-buffer-4.1.79.Final.jar shardingsph
+ ere-sql-parser-spi-5.0.0.jar elasticjob-tracing-rdb-3.0.1.jar spring-bo
+ ot-starter-thymeleaf-2.7.3.jar mybatis-plus-boot-starter-3.4.1.jar jack
+ son-core-2.13.3.jar spring-boot-starter-tomcat-2.7.3.jar shardingsphere
+ -jdbc-core-spring-boot-starter-5.0.0.jar shardingsphere-shadow-distsql-
+ statement-5.0.0.jar shardingsphere-readwrite-splitting-distsql-handler-
+ 5.0.0.jar shardingsphere-system-datetime-5.0.0.jar logback-classic-1.2.
+ 11.jar spring-aop-5.3.22.jar shardingsphere-standalone-mode-repository-
+ api-5.0.0.jar shardingsphere-sql-parser-sqlserver-5.0.0.jar elasticjob-
+ dataflow-executor-3.0.1.jar httpcore-4.4.15.jar spring-expression-5.3.2
+ 2.jar unbescape-1.1.6.RELEASE.jar shardingsphere-db-discovery-api-5.0.0
+ .jar shardingsphere-sharding-spring-boot-starter-5.0.0.jar jackson-data
+ type-jdk8-2.13.3.jar spring-boot-2.7.3.jar mysql-connector-java-8.0.28.
+ jar thymeleaf-extras-java8time-3.0.4.RELEASE.jar elasticjob-api-3.0.1.j
+ ar zookeeper-3.6.0.jar commons-codec-1.15.jar spring-boot-starter-json-
+ 2.7.3.jar attoparser-2.0.5.RELEASE.jar spring-tx-5.3.22.jar netty-codec
+ -4.1.79.Final.jar groovy-2.4.19-indy.jar shardingsphere-readwrite-split
+ ting-distsql-parser-5.0.0.jar shardingsphere-authority-api-5.0.0.jar ac
+ cessors-smart-2.4.8.jar jcl-over-slf4j-1.7.36.jar json-path-2.7.0.jar j
+ anino-3.1.7.jar commons-exec-1.3.jar spring-context-support-5.3.22.jar 
+ shardingsphere-distsql-parser-engine-5.0.0.jar shardingsphere-sql-parse
+ r-mysql-5.0.0.jar netty-handler-4.1.79.Final.jar jai-imageio-core-1.4.0
+ .jar shardingsphere-infra-datetime-spi-5.0.0.jar shardingsphere-shardin
+ g-distsql-handler-5.0.0.jar shardingsphere-encrypt-distsql-handler-5.0.
+ 0.jar log4j-1.2.17.jar shardingsphere-shadow-distsql-parser-5.0.0.jar s
+ hardingsphere-readwrite-splitting-api-5.0.0.jar asm-9.1.jar uzaygezen-c
+ ore-0.2.jar shardingsphere-infra-optimize-5.0.0.jar log4j-to-slf4j-2.17
+ .2.jar commons-dbcp2-2.9.0.jar shardingsphere-db-discovery-distsql-stat
+ ement-5.0.0.jar spring-boot-starter-logging-2.7.3.jar shardingsphere-db
+ -discovery-mgr-5.0.0.jar shardingsphere-spi-5.0.0.jar shardingsphere-en
+ crypt-spring-boot-starter-5.0.0.jar shardingsphere-sharding-distsql-sta
+ tement-5.0.0.jar elasticjob-infra-common-3.0.1.jar error_prone_annotati
+ ons-2.11.0.jar shardingsphere-shadow-distsql-handler-5.0.0.jar sharding
+ sphere-sql-parser-oracle-5.0.0.jar curator-framework-5.1.0.jar spring-j
+ dbc-5.3.22.jar elasticjob-error-handler-general-3.0.1.jar shardingspher
+ e-sql-parser-statement-5.0.0.jar shardingsphere-readwrite-splitting-dis
+ tsql-statement-5.0.0.jar listenablefuture-9999.0-empty-to-avoid-conflic
+ t-with-guava.jar shardingsphere-infra-parser-5.0.0.jar calcite-core-1.2
+ 7.0.jar netty-transport-4.1.79.Final.jar guava-31.1-jre.jar shardingsph
+ ere-db-discovery-distsql-parser-5.0.0.jar spring-web-5.3.22.jar tomcat-
+ embed-el-9.0.65.jar spring-beans-5.3.22.jar failureaccess-1.0.1.jar dru
+ id-1.1.13.jar jcommander-1.82.jar shardingsphere-jdbc-core-5.0.0.jar sl
+ f4j-api-1.7.36.jar shardingsphere-jdbc-transaction-spring-5.0.0.jar log
+ back-core-1.2.11.jar spring-context-5.3.22.jar snakeyaml-1.30.jar lombo
+ k-1.18.24.jar shardingsphere-jdbc-spring-boot-starter-infra-5.0.0.jar m
+ ybatis-plus-extension-3.4.1.jar shardingsphere-readwrite-splitting-core
+ -5.0.0.jar jackson-dataformat-yaml-2.13.3.jar mybatis-spring-boot-start
+ er-2.2.2.jar spring-jcl-5.3.22.jar shardingsphere-shadow-api-5.0.0.jar 
+ elasticjob-tracing-api-3.0.1.jar audience-annotations-0.5.0.jar elastic
+ job-lite-core-3.0.1.jar shardingsphere-infra-rewrite-5.0.0.jar sharding
+ sphere-transaction-core-5.0.0.jar jackson-module-parameter-names-2.13.3
+ .jar thymeleaf-spring5-3.0.15.RELEASE.jar shardingsphere-cluster-mode-r
+ epository-api-5.0.0.jar freemarker-2.3.31.jar spring-boot-devtools-2.7.
+ 3.jar shardingsphere-transaction-api-5.0.0.jar shardingsphere-db-discov
+ ery-core-5.0.0.jar apiguardian-api-1.1.2.jar protobuf-java-3.6.1.jar js
+ on-smart-2.4.8.jar shardingsphere-shadow-core-5.0.0.jar avatica-metrics
+ -1.18.0.jar commons-collections4-4.2.jar commons-pool2-2.11.1.jar netty
+ -common-4.1.79.Final.jar mybatis-plus-core-3.4.1.jar mchange-commons-ja
+ va-0.2.15.jar HikariCP-4.0.3.jar spring-boot-starter-freemarker-2.7.3.j
+ ar shardingsphere-standalone-mode-core-5.0.0.jar shardingsphere-shardin
+ g-distsql-parser-5.0.0.jar shardingsphere-standalone-mode-repository-fi
+ le-5.0.0.jar shardingsphere-infra-binder-5.0.0.jar memory-0.9.0.jar sha
+ rdingsphere-distsql-parser-statement-5.0.0.jar spring-boot-starter-web-
+ 2.7.3.jar mybatis-spring-boot-autoconfigure-2.2.2.jar shardingsphere-sh
+ arding-api-5.0.0.jar zookeeper-jute-3.6.0.jar curator-recipes-5.1.0.jar
+  commons-lang3-3.12.0.jar shardingsphere-encrypt-api-5.0.0.jar sharding
+ sphere-shadow-spring-boot-starter-5.0.0.jar core-3.5.1.jar aggdesigner-
+ algorithm-6.0.jar elasticjob-simple-executor-3.0.1.jar shardingsphere-i
+ nfra-executor-5.0.0.jar elasticjob-error-handler-spi-3.0.1.jar sharding
+ sphere-sql-parser-postgresql-5.0.0.jar mybatis-3.5.9.jar shardingsphere
+ -sql-parser-sql92-5.0.0.jar shardingsphere-mode-core-5.0.0.jar sharding
+ sphere-encrypt-distsql-statement-5.0.0.jar shardingsphere-infra-context
+ -5.0.0.jar esri-geometry-api-2.2.0.jar mybatis-plus-annotation-3.4.1.ja
+ r shardingsphere-single-table-api-5.0.0.jar calcite-linq4j-1.27.0.jar n
+ etty-transport-native-unix-common-4.1.79.Final.jar spring-boot-starter-
+ 2.7.3.jar jackson-datatype-jsr310-2.13.3.jar avatica-core-1.18.0.jar to
+ mcat-embed-websocket-9.0.65.jar spring-core-5.3.22.jar tomcat-embed-cor
+ e-9.0.65.jar shardingsphere-sharding-core-5.0.0.jar quartz-2.3.2.jar sk
+ etches-core-0.9.0.jar netty-transport-native-epoll-4.1.79.Final.jar jac
+ kson-databind-2.13.3.jar gson-2.9.1.jar mybatis-plus-3.4.1.jar netty-tr
+ ansport-classes-epoll-4.1.79.Final.jar antlr4-runtime-4.9.2.jar elastic
+ job-executor-kernel-3.0.1.jar mybatis-spring-2.0.7.jar shardingsphere-c
+ luster-mode-core-5.0.0.jar shardingsphere-authority-core-5.0.0.jar shar
+ dingsphere-encrypt-core-5.0.0.jar commons-logging-1.1.3.jar j2objc-anno
+ tations-1.3.jar shardingsphere-db-discovery-distsql-handler-5.0.0.jar s
+ hardingsphere-infra-common-5.0.0.jar shardingsphere-readwrite-splitting
+ -spring-boot-starter-5.0.0.jar elasticjob-http-executor-3.0.1.jar jacks
+ on-annotations-2.13.3.jar commons-lang-2.4.jar javase-3.5.1.jar shardin
+ gsphere-infra-merge-5.0.0.jar shardingsphere-single-table-core-5.0.0.ja
+ r curator-client-5.1.0.jar elasticjob-script-executor-3.0.1.jar jakarta
+ .annotation-api-1.3.5.jar shardingsphere-infra-route-5.0.0.jar commons-
+ io-2.4.jar spring-boot-autoconfigure-2.7.3.jar httpclient-4.5.13.jar el
+ asticjob-registry-center-3.0.1.jar spring-boot-starter-jdbc-2.7.3.jar s
+ hardingsphere-encrypt-distsql-parser-5.0.0.jar
+

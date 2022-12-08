@@ -7,11 +7,13 @@ import top.wakem.abbrlink.common.enums.BizExceptionEnum;
 import top.wakem.abbrlink.common.exception.BizException;
 import top.wakem.abbrlink.common.request.LinkRequest;
 import top.wakem.abbrlink.common.response.BaseResponse;
+import top.wakem.abbrlink.common.response.ExtraResponse;
 import top.wakem.abbrlink.service.AbbrService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.Map;
 
 @Controller
 public class AbbrController {
@@ -22,8 +24,13 @@ public class AbbrController {
     @PutMapping("/link")
     @ResponseBody
     public BaseResponse<String> addLink(@RequestBody LinkRequest linkRequest) {
-        String abbr = abbrService.addLink(linkRequest.getLink(), linkRequest.getExpireDays());
-        return BaseResponse.success(abbr);
+        return abbrService.addLink(linkRequest.getLink(), linkRequest.getExpireDays());
+    }
+
+    @PostMapping("/qrcode")
+    @ResponseBody
+    public BaseResponse<String> qrCode(@RequestBody Map<String, String> mp) {
+        return abbrService.getQRCode(mp.get("content"));
     }
 
     @GetMapping("/")

@@ -207,7 +207,23 @@
         }
         .github-corner:hover
         .octo-arm{animation:octocat-wave 560ms ease-in-out}
-        @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner
+        @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner}
+
+        #QRCode {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            border: none;
+        }
+
+        #QRCodeImg {
+            height: 100px;
+            width: 100px;
+            border: none;
+            display: none;
+        }
 
     </style>
 </head>
@@ -242,6 +258,9 @@
         <input id="submit_button" type="submit" name="submit" value="短!">
     </form>
 </div>
+<div id="QRCode">
+    <img id="QRCodeImg" title="QRCode">
+</div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     let eye = document.querySelectorAll(".eye");
@@ -261,6 +280,7 @@
         let link = document.getElementById("link");
         let face = document.getElementById("face");
         let expire = document.getElementById("expire");
+        let qrCode = document.getElementById("QRCodeImg")
         let link_str = link.value
         let expire_days = expire.value
         axios({
@@ -287,6 +307,20 @@
             face.classList.remove("unhappy")
             face.classList.add("happy")
             copy(link.value)
+            axios({
+                url: '/qrcode',
+                method: 'post',
+                data: {
+                    'content': url
+                },
+                header: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function (response) {
+                if (response.data.code !== 1) return;
+                qrCode.style.display = "block";
+                qrCode.setAttribute("src", response.data.data)
+            })
         })
     })
 

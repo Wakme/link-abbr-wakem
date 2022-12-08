@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import top.wakem.abbrlink.common.constants.BizExcepConstants;
 import top.wakem.abbrlink.common.enums.BizExceptionEnum;
 import top.wakem.abbrlink.common.exception.BizException;
+import top.wakem.abbrlink.common.response.BaseResponse;
+import top.wakem.abbrlink.common.response.ExtraResponse;
+import top.wakem.abbrlink.common.utils.QRCodeGenerator;
 import top.wakem.abbrlink.common.utils.UrlUtils;
 import top.wakem.abbrlink.dao.entity.LinkAbbr;
 import top.wakem.abbrlink.dao.mapper.LinkAbbrMapper;
@@ -28,6 +31,8 @@ public class AbbrService {
 
     private final static int UUID_BATCH_SIZE = 5;
 
+    private final static int WIDTH = 300;
+
     @Resource
     private LinkAbbrMapper linkAbbrMapper;
 
@@ -39,7 +44,7 @@ public class AbbrService {
      * @param link 长连接
      * @param expireDays 有效天数
      */
-    public String addLink(String link, Integer expireDays) {
+    public BaseResponse<String> addLink(String link, Integer expireDays) {
         link = UrlUtils.preHandleUrl(link);
         if (!UrlUtils.isUrl(link)) {
             throw new BizException(BizExcepConstants.WRONG_PARAM, "链接校验失败");
@@ -62,7 +67,11 @@ public class AbbrService {
             throw new BizException(BizExceptionEnum.SYSTEM_ERROR);
         }
 
-        return abbr;
+        return BaseResponse.success(abbr);
+    }
+
+    public BaseResponse<String> getQRCode(String content) {
+        return BaseResponse.success(QRCodeGenerator.getQRCode2Base64(content, WIDTH, WIDTH));
     }
 
     private String getAvailableLinkAbbr() {
